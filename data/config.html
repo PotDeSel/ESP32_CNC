@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<head>
+  <title>CONFIGURATION</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+
+<body>
+  <h1>
+    <div class="h1">
+
+      <p>ESP32<br>CNC CONTROLLER</p>
+      <div id="date">mm/dd/yyyy</div>
+      <div id="time">00:00:00</div>
+    </div>
+  </h1>
+
+  <form action="/config" method="POST">
+
+    <!-------------BROCHE------------->
+
+    <div class="topnav">
+      <p style="font-size:x-large;">[BROCHE]</p>
+      <label for="DC_MOTOR_SPEED_MAX">Vitesse MAX :</label>
+      <input type="number" step="1" name="DC_MOTOR_SPEED_MAX" value="4000">
+
+      <p>Vitesse MAX : <span id="DC_MOTOR_SPEED_MAX" style="font-weight: bold;">N/A</span></p>
+    </div>
+
+    <!-------------AXE X------------->
+
+    <div class="topnav">
+      <p style="font-size:x-large;">[STEPPER AXE X]</p>
+      <label for="STEPPER_STEPS_PER_REV_X">Pas par r&eacute;volution :</label>
+      <input type="number" step="1" name="STEPPER_STEPS_PER_REV_X" value="400">
+      <label for="STEPPER_micropasX">Micropas driver:</label>
+      <input type="number" step="1" name="STEPPER_micropasX" value="16">
+      <label for="STEPPER_pasfiltageX">Pas du filtage [mm]:</label>
+      <input type="number" step="1" name="STEPPER_pasfiltageX" value="2">
+
+      <label for="MAX_POS_X">MAX_POS_X [mm]:</label>
+      <input type="number" step="0.1" name="MAX_POS_X" value="700">
+
+      <p> Pas par r&eacute;volution : <span id="STEPPER_STEPS_PER_REV_X" style="font-weight: bold;">N/A</span></p>
+      <p> Micro pas X : <span id="STEPPER_micropasX" style="font-weight: bold;">N/A</span></p>
+      <p>Pas de filtage X : <span id="STEPPER_pasfiltageX" style="font-weight: bold;">N/A</span></p>
+      <p>Position max X : <span id="MAX_POS_X" style="font-weight: bold;">N/A</span></p>
+
+      <p> Pas par mm : <span id="STEPPER_STEPS_PER_MM_X" style="font-weight: bold;">N/A</span></p>
+
+    </div>
+
+    <!-------------AXE Y------------->
+
+    <div class="topnav">
+      <p style="font-size:x-large;">[STEPPER AXE Y]</p>
+      <label for="STEPPER_STEPS_PER_REV_Y">Pas par r&eacute;volution :</label>
+      <input type="number" step="1" name="STEPPER_STEPS_PER_REV_Y" value="400">
+      <label for="STEPPER_micropasY">Micropas driver:</label>
+      <input type="number" step="1" name="STEPPER_micropasY" value="16">
+      <label for="STEPPER_pasfiltageY">Pas du filtage [mm]:</label>
+      <input type="number" step="1" name="STEPPER_pasfiltageY" value="2">
+
+      <label for="MAX_POS_Y">MAX_POS_Y [mm]:</label>
+      <input type="number" step="0.1" name="MAX_POS_Y" value="400">
+
+      <p> Pas par r&eacute;volution : <span id="STEPPER_STEPS_PER_REV_Y" style="font-weight: bold;">N/A</span></p>
+      <p> Micro pas Y : <span id="STEPPER_micropasY" style="font-weight: bold;">N/A</span></p>
+      <p>Pas de filtage Y : <span id="STEPPER_pasfiltageY" style="font-weight: bold;">N/A</span></p>
+      <p>Position max Y : <span id="MAX_POS_Y" style="font-weight: bold;">N/A</span></p>
+
+      <p> Pas par mm : <span id="STEPPER_STEPS_PER_MM_Y" style="font-weight: bold;">N/A</span></p>
+
+    </div>
+
+    <!-------------AXE Z------------->
+
+    <div class="topnav">
+      <p style="font-size:x-large;">[STEPPER AXE Z]</p>
+      <label for="STEPPER_STEPS_PER_REV_Z">Pas par r&eacute;volution :</label>
+      <input type="number" step="1" name="STEPPER_STEPS_PER_REV_Z" value="400">
+      <label for="STEPPER_micropasZ">Micropas driver:</label>
+      <input type="number" step="1" name="STEPPER_micropasZ" value="16">
+      <label for="STEPPER_pasfiltageZ">Pas du filtage [mm]:</label>
+      <input type="number" step="1" name="STEPPER_pasfiltageZ" value="2">
+
+      <label for="MAX_POS_Z">MAX_POS_Z [mm]:</label>
+      <input type="number" step="0.1" name="MAX_POS_Z" value="300">
+
+      <p> Pas par r&eacute;volution : <span id="STEPPER_STEPS_PER_REV_Z" style="font-weight: bold;">N/A</span></p>
+      <p> Micro pas Z : <span id="STEPPER_micropasZ" style="font-weight: bold;">N/A</span></p>
+      <p>Pas de filtage Z : <span id="STEPPER_pasfiltageZ" style="font-weight: bold;">N/A</span></p>
+      <p>Position max Z : <span id="MAX_POS_Z" style="font-weight: bold;">N/A</span></p>
+
+      <p> Pas par mm : <span id="STEPPER_STEPS_PER_MM_Z" style="font-weight: bold;">N/A</span></p>
+
+    </div>
+
+    <div class="btn-group">
+      <a href="submit"><button type="submit" class="btn btn-primary">ENVOYER</button></a>
+      <a href="load"><button type="button" class="btn btn-info">Charger</button></a>
+      <a href="index"><button type="button" class="btn">Controle CN</button></a>
+    </div>
+  </form>
+  <script src="scripts_config.js"></script>
+</body>
+</head>

@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>ESP32 CNC CONTROLLER</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="http://cdn.rawgit.com/Mikhus/canvas-gauges/gh-pages/download/2.1.7/all/gauge.min.js"></script>
+</head>
+
+
+<body>
+
+  <h1>
+    <div class="h1">
+
+      <p>ESP32<br>CNC CONTROLLER</p>
+      <div id="date">mm/dd/yyyy</div>
+      <div id="time">00:00:00</div>
+    </div>
+  </h1>
+
+  <div class="btn_group">
+    <a href="homing"><button type="button" class="btn btn-primary">Calibration</button></a>
+    <a href="homing_rest"><button type="button" class="btn btn-danger">Reset Calibration</button></a>
+    <p><strong> %STATE%</strong></p>
+    <div id="Work"></div>
+  </div>
+
+  <form action="/" method="POST">
+
+    <!------------------SPINDLE--------------------->
+    <div class="topnav">
+      <input type="radio" name="DC_direction" value="CW">
+      <label for="CW">[BROCHE] Sens horaire</label>
+
+      <input type="radio" name="DC_direction" value="CCW">
+      <label for="CW">[BROCHE] Sens anti-horaire</label>
+
+      <input type="radio" name="DC_direction" value="STOP" checked>
+      <label for="CW">[BROCHE] Arret</label><br><br><br>
+
+      <p>[BROCHE] PWM: <span id="DC_analog" style="font-weight: bold;">N/A</span></p>
+    </div>
+
+    <div class="card">
+      <canvas id="gauge-speed"></canvas>
+    </div>
+    <!------------------AXE X--------------------->
+    <div class="topnav">
+      <input type="radio" name="STEPPER_directionX" value="CW" checked>
+      <label for="CW">[AXE X] Sens horaire</label>
+
+      <input type="radio" name="STEPPER_directionX" value="CCW">
+      <label for="CW">[AXE X] Sens anti-horaire</label><br><br><br>
+
+      <label for="STEPPER_distanceX">[AXE X] Distance (mm):</label>
+      <input type="number" step="0.0001" name="STEPPER_distanceX" value="0">
+
+      <label for="STEPPER_vitesseX">[AXE X] Vitesse (tr/min):</label>
+      <input type="number" step="1" name="STEPPER_vitesseX" value="1">
+
+      <p>[AXE X] Vitesse: <span id="STEPPER_vitesseX" style="font-weight: bold;">N/A</span> tr/min</p>
+
+      <p>[AXE X] Position absolue <span id="STEPPER_absolueX">N/A</span> mm</p>
+      <p>[AXE X] Position relative <span id="STEPPER_relativeX">N/A</span> mm <a href="relativeX"><button type="button"
+            class="btn btn-warning">Mise &agrave; 0 relative </button></a></p>
+
+    </div>
+    <!------------------AXE Y--------------------->
+    </div>
+    <div class="topnav">
+      <input type="radio" name="STEPPER_directionY" value="CW" checked>
+      <label for="CW">[AXE Y] Sens horaire</label>
+
+      <input type="radio" name="STEPPER_directionY" value="CCW">
+      <label for="CW">[AXE Y] Sens anti-horaire</label><br><br><br>
+
+      <label for="distance">[AXE Y] Distance (mm):</label>
+      <input type="number" step="any" name="STEPPER_distanceY" value="0">
+
+      <label for="STEPPER_vitesseY">[AXE Y] Vitesse (tr/min):</label>
+      <input type="number" step="any" name="STEPPER_vitesseY" value="1">
+
+      <p>[AXE Y] Vitesse: <span id="STEPPER_vitesseY" style="font-weight: bold;">N/A</span> tr/min</p>
+
+      <p>[AXE Y] Position absolue <span id="STEPPER_absolueY">N/A</span> mm</p>
+      <p>[AXE Y] Position relative <span id="STEPPER_relativeY">N/A</span> mm <a href="relativeY"><button type="button"
+            class="btn btn-warning">Mise &agrave; 0 relative</button></a></p>
+    </div>
+    <!------------------AXE Z--------------------->
+
+    <div class="topnav">
+      <input type="radio" name="STEPPER_directionZ" value="CW" checked>
+      <label for="CW">[AXE Z] Sens horaire</label>
+
+      <input type="radio" name="STEPPER_directionZ" value="CCW">
+      <label for="CW">[AXE Z] Sens anti-horaire</label><br><br><br>
+
+      <label for="distance">[AXE Z] Distance (mm):</label>
+      <input type="number" step="any" name="STEPPER_distanceZ" value="0">
+
+      <label for="STEPPER_vitesseZ">[AXE Z] Vitesse (tr/min):</label>
+      <input type="number" step="any" name="STEPPER_vitesseZ" value="1">
+
+      <p>[AXE Z] Vitesse: <span id="STEPPER_vitesseZ" style="font-weight: bold;">N/A</span> tr/min</p>
+
+      <p>[AXE Z] Position absolue <span id="STEPPER_absolueZ">N/A</span> mm</p>
+      <p>[AXE Z] Position relative <span id="STEPPER_relativeZ">N/A</span> mm <a href="relativeZ"><button type="button"
+            class="btn btn-warning">Mise &agrave; 0 relative</button></a></p>
+    </div>
+
+    <div class="btn-group">
+      <a href="submit"><button type="submit" class="btn btn-primary">ENVOYER</button></a>
+      <a href="config.html"><button type="button" class="btn">Configuration</button></a>
+    </div>
+
+  </form>
+  <script src="script.js"></script>
+</body>
+
+</html>
