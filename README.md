@@ -1,6 +1,6 @@
 # ESP32_CNC
 
-  Ce projet vise à réaliser une maquette de commande numérique à moindre coût grâce à un système Arduino (ESP32), et d’une IHM.
+  Ce projet vise à réaliser le contrôle d'une maquette de commande numérique à moindre coût grâce à un système Arduino (ESP32), et d’une IHM.
   Ceci permettra de confirmer la faisabilité d'un futur projet de motorisation d'une machine déjà existante.
 
   La commande numérique doit être en mesure de déplacer les axes à l'aide d'un moteurs pas à pas, en utilisant un
